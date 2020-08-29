@@ -1,0 +1,14 @@
+{
+    "name": "docker_backend_app",
+    "version": "1.0.0",
+    "description": "Node.js on Docker",
+    "author": "https://github.com/heyletscode",
+    "main": "app.js",
+    "scripts": {
+      "start": "node app.js"
+    },
+    "dependencies": {
+      "express": "^4.16.1"
+    }
+  }
+  
