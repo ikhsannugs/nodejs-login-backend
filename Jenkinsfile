@@ -10,7 +10,7 @@ pipeline {
             def scannerHome = tool 'sonarscanner';
               withSonarQubeEnv("sonarserver") {
               sh "${tool("sonarscanner")}/bin/sonar-scanner \
-              -Dsonar.projectKey=nodejs-login-backend-${BRANCH_NAME}
+              -Dsonar.projectKey=nodejs-login-backend-${BRANCH_NAME} \
               -Dsonar.sources=. \
               -Dsonar.css.node=."
             }
