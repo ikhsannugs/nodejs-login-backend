@@ -38,7 +38,7 @@ pipeline {
         }
         steps {
           script {
-            if ( env.GIT_BRANCH == 'staging' ) {
+            if ( env.GIT_BRANCH == 'stagging' ) {
               sh "wget https://raw.githubusercontent.com/ikhsannugs/deploy-repo/master/deploy-nodejs-backend.yaml"
               sh "sed -i 's/ENV/${BRANCH_NAME}/g' deploy-nodejs-backend.yaml"
               sh "sed -i 's/NO/${BUILD_NUMBER}/g' deploy-nodejs-backend.yaml"
