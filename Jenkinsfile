@@ -29,6 +29,9 @@ pipeline {
         }
       }
       stage('Deploy to Kubernetes') {
+        when {
+           changelog 'deployement'
+        }
         input {
           message "Should we continue?"
             ok "Yes, we should."
