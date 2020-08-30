@@ -30,7 +30,7 @@ pipeline {
       }
       stage('Deploy to Kubernetes') {
         when {
-           changelog 'deployement'
+           changelog 'deployment'
         }
         input {
           message "Should we continue?"
