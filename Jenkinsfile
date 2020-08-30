@@ -19,9 +19,15 @@ pipeline {
       }
       stage('Build with Docker') {
         steps {
-          sh "docker build -f Dockerfile -t nodejs-backend:${BRANCH_NAME}-${BUILD_NUMBER} ."
-          sh "docker image rm -f nodejs-backend:${BRANCH_NAME}-${BUILD_NUMBER}"
+          sh "docker build -f Dockerfile -t ${DOCKER_REPO}/nodejs-backend:${BRANCH_NAME}-${BUILD_NUMBER} ."
+        }
+      }
+      stage('Publish Docker Image') {
+        steps {
+          sh "docker push ${DOCKER_REPO}/nodejs-backend:${BRANCH_NAME}-${BUILD_NUMBER}"
+          sh "docker image rm -f ${DOCKER_REPO}/nodejs-backend:${BRANCH_NAME}-${BUILD_NUMBER}"
         }
       }
     }
 }
+
